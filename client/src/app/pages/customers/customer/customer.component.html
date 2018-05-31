@@ -1,0 +1,172 @@
+<form class="form" role="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <fieldset>
+<div class="row">
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>Customer Information</nb-card-header>
+      <nb-card-body>
+          <!-- <select class="form-control" id="exampleFormControlSelect1" [formControl]="form.controls['expensivecategory']" [ngClass]="{'form-control-danger': form.controls['expensivecategory'].hasError('required') && form.controls['expensivecategory'].touched}">
+              <option [selected]=true>-</option>
+              <option *ngFor="let cate of category">{{cate.name}}</option>
+          </select>
+         <div style="color:red" class="form-control-feedback" *ngIf="form.controls['expensivecategory'].hasError('required') && form.controls['expensivecategory'].touched">Expense Category is required.</div> 
+      </div> -->
+          <div class="row">
+            <div class="col-sm-6  form-group">
+              <input type="text" id="normal-field" placeholder="First Name" class="form-control" [formControl]="form.controls['firstName']" [ngClass]="{'form-control-danger': form.controls['firstName'].hasError('required') && form.controls['firstName'].touched}"/>
+               <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['firstName'].hasError('required') && form.controls['firstName'].touched">First Name is required.</div>
+            </div>
+            <div class="col-sm-6  form-group">
+              <input type="text" placeholder="Last Name" class="form-control"[formControl]="form.controls['lastName']" [ngClass]="{'form-control-danger': form.controls['lastName'].hasError('required') && form.controls['lastName'].touched}"/>
+               <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['lastName'].hasError('required') && form.controls['lastName'].touched">Last Name is required.</div>
+            </div>
+          </div>
+         
+            <div class=" form-group" >
+              <!-- <input type="number" placeholder="CNIC Number" class="form-control"/> -->
+              <input type="text" placeholder="CNIC Number" class="form-control" [formControl]="form.controls['cnicNo']" [ngClass]="{'form-control-danger': form.controls['cnicNo'].hasError('required')  && form.controls['cnicNo'].touched}"/>
+               <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['cnicNo'].hasError('required') && form.controls['cnicNo'].touched">CNIC is required</div>
+               <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['cnicNo'].hasError('maxlength')">CNIC must be 13 digits.</div>
+               <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['cnicNo'].hasError('minlength')">CNIC must be 13 digits.</div>
+               <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['cnicNo'].hasError('pattern')">CNIC must be in number formate.</div>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" placeholder="Mobile Number" class="form-control" [formControl]="form.controls['mobileNo']" [ngClass]="{'form-control-danger': form.controls['mobileNo'].hasError('required') && form.controls['mobileNo'].touched}">
+                <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['mobileNo'].hasError('required') && form.controls['mobileNo'].touched">Mobile Number is required.</div> 
+                <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['mobileNo'].hasError('maxlength') ">Mobile Number must be 11 digits.</div>
+                <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['mobileNo'].hasError('minlength') ">Mobile Number must be 11 digits.</div>
+                <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['mobileNo'].hasError('pattern') ">Mobile Number must be in number formate.</div>
+            </div>
+            <div class=" form-group">
+                <input type="email" placeholder="Email" class="form-control" [formControl]="form.controls['email']" [ngClass]="{'form-control-danger': form.controls['email'].hasError('required') && form.controls['email'].touched}">
+                <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched">email is required.</div> 
+                <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['email'].hasError('email') && form.controls['email'].touched">email is invalid</div> 
+            </div>
+        
+          
+            <div class=" form-group">
+              <textarea rows="2" placeholder="Connection Address" class="form-control" [formControl]="form.controls['address']" [ngClass]="{'form-control-danger': form.controls['address'].hasError('required') && form.controls['address'].touched}"></textarea>
+              <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['address'].hasError('required') && form.controls['address'].touched">address is required.</div> 
+            </div>
+          
+        
+          
+           
+            
+        </nb-card-body>
+      </nb-card>
+      <nb-card>
+          <nb-card-header>Attachments</nb-card-header>
+          <nb-card-body>
+            <!-- <div class="form-group  form-group">
+                    <label>CNIC Front</label>
+                    <input type="file" placeholder="CNIC Front" class="form-control"/>
+                   
+                  </div>
+               -->
+              
+                  <!-- <div class=" form-group  form-group">
+
+                      <label for="CNICBack" class="control-label">CNIC Back
+                      <input type="file" class="btn" id="CNICBack" placeholder="CNIC Back" class="form-control"/>
+                    </label>
+                  </div> -->
+                  <div class="row form-inline">
+                      <label class="m-3">CNIC Front </label>
+                      <label class="btn btn-primary">
+                        Browse <input type="file" (change)="cnicFPic($event)" accept="image/* " hidden>
+                      </label>
+                      <p class="m-1" *ngIf="cnicFrontPic">{{cnicFrontPic}}</p>
+                  </div>
+                  <br />
+                  <div class="row form-inline">
+                      <label class="m-3">CNIC Back </label>
+                      <label class="btn btn-primary">
+                        Browse <input type="file" (change)="cnicBPic($event)" accept="image/*" hidden>
+                      </label>
+                      <p class="m-1" *ngIf="cnicBackPic">{{cnicBackPic}}</p>
+                  </div>
+                  <br />
+                  <div class="row">
+                      <label class="m-3">Filled and Signed by Customer and Dealer </label>
+                      <label class="btn btn-primary">
+                        Browse <input type="file" (change)="docsPic($event)" accept="image/*" hidden>
+                      </label>
+                      <p class="m-1" *ngIf="docPic">{{docPic}}</p>
+                  </div>
+                  <!-- <div class="form-group  form-group">
+                      <label>Filled and Signed by Customer and Dealer</label>
+                      <input type="file" placeholder=" Filled and Signed by Customer + Dealer" class="form-control"/>
+                  </div> -->
+                 
+              
+          </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-lg-6">
+       
+        <nb-card>
+            <nb-card-header>Connection Info</nb-card-header>
+            <nb-card-body>
+                <div class="form-group">
+                    <label >Packages</label>
+                    <select class="form-control"  [formControl]="form.controls['package']" >
+                      <option [selected] = "true">Super</option>
+                      <option >Premium</option>
+                      <option >Fast</option>
+                      <option >Home</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Router of</label>
+                    <select class="form-control"  [formControl]="form.controls['routerOf']">
+                      <option >Customer</option>
+                      <option [selected] = "true">Company</option>
+                    </select>
+                
+                </div>
+           
+                <div class="  form-group">
+                    <label>Router Brand</label>
+                    <select class="form-control"  [formControl]="form.controls['routerBrand']">
+                      <option [selected] = "true">Cisco</option>
+                      <option>JQ</option>
+                    </select>
+                </div>
+            
+        
+                <div class="  form-group">
+                    <label>Router Model</label>
+                    <select class="form-control" [formControl]="form.controls['routerModel']">
+                      <option [selected] = "true">R28</option>
+                      <option>R30</option>
+                    </select>
+                </div>
+                <div class="form-group" *ngIf = "form.value.routerOf != 'Customer'">
+                    <input type="text" placeholder="Router Price" [formControl]="form.controls['routerPrice']"  class="form-control"/>
+                </div>
+                <div class=" form-group">
+                    <label>DropWire of</label>
+                    <select class="form-control"  [formControl]="form.controls['dropWireOf']">
+                      <option>Customer</option>
+                      <option [selected] = "true">Company</option>
+                    </select>
+                </div>
+                <div class=" form-group">
+                    <input type="number" placeholder="DropWire Meter" [formControl]="form.controls['dropWireLength']" class="form-control"/>
+                </div>
+                <div class=" form-group" *ngIf = "form.value.dropWireOf != 'Customer'">
+                    <input type="number" placeholder="DropWire Price /Meter" [formControl]="form.controls['dropWirePricePL']" class="form-control"/>
+                </div>
+            </nb-card-body>
+          </nb-card>
+        <div class="float-right">
+            <button type="submit" [disabled]="!form.valid"  class="btn btn-primary btn-md">Save</button>
+        </div>
+        </div>
+   
+  </div>
+  </fieldset>
+</form>
+        
