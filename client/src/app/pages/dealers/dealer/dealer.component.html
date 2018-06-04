@@ -1,10 +1,121 @@
-<nb-card>
-  <nb-card-header>
-    Smart Table
-  </nb-card-header>
-
-  <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="source" *ngIf = "source" (deleteConfirm)="onDeleteConfirm($event)">
-    </ng2-smart-table>
-  </nb-card-body>
-</nb-card>
+<form class="form" role="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <fieldset>
+<div class="row">
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>Dealer Information</nb-card-header>
+      <nb-card-body>
+          <!-- <select class="form-control" id="exampleFormControlSelect1" [formControl]="form.controls['expensivecategory']" [ngClass]="{'form-control-danger': form.controls['expensivecategory'].hasError('required') && form.controls['expensivecategory'].touched}">
+              <option [selected]=true>-</option>
+              <option *ngFor="let cate of category">{{cate.name}}</option>
+          </select>
+         <div style="color:red" class="form-control-feedback" *ngIf="form.controls['expensivecategory'].hasError('required') && form.controls['expensivecategory'].touched">Expense Category is required.</div> 
+      </div> -->
+         
+            <div class=" form-group">
+              <input type="text" id="normal-field" placeholder="Full Name" class="form-control" [formControl]="form.controls['fullName']" [ngClass]="{'form-control-danger': form.controls['fullName'].hasError('required') && form.controls['fullName'].touched}"/>
+               <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['fullName'].hasError('required') && form.controls['fullName'].touched">First Name is required.</div>
+            </div>
+          
+         
+            <div class=" form-group" >
+              <!-- <input type="number" placeholder="CNIC Number" class="form-control"/> -->
+              <input type="text" placeholder="CNIC Number" class="form-control" [formControl]="form.controls['cnicNo']" [ngClass]="{'form-control-danger': form.controls['cnicNo'].hasError('required')  && form.controls['cnicNo'].touched}"/>
+               <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['cnicNo'].hasError('required') && form.controls['cnicNo'].touched">CNIC is required</div>
+               <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['cnicNo'].hasError('maxlength')">CNIC must be 13 digits.</div>
+               <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['cnicNo'].hasError('minlength')">CNIC must be 13 digits.</div>
+               <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['cnicNo'].hasError('pattern')">CNIC must be in number formate.</div>
+            </div>
+            
+          
+           
+          
+            <div class=" form-group">
+              <textarea rows="2" placeholder="Office Address" class="form-control" [formControl]="form.controls['address']" [ngClass]="{'form-control-danger': form.controls['address'].hasError('required') && form.controls['address'].touched}"></textarea>
+              <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['address'].hasError('required') && form.controls['address'].touched">Office Address is required.</div> 
+            </div>
+            <div class=" form-group">
+              <textarea rows="2" placeholder="Residential Address" class="form-control" [formControl]="form.controls['address2']" [ngClass]="{'form-control-danger': form.controls['address2'].hasError('required') && form.controls['address2'].touched}"></textarea>
+              <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['address2'].hasError('required') && form.controls['address2'].touched">Residential Address is required.</div> 
+            </div>
+          
+        
+            <div class="row form-inline">
+              <label class="m-3">CNIC Front </label>
+              <label class="btn btn-primary">
+                Browse <input type="file" (change)="cnicFPic($event)" accept="image/* " hidden>
+              </label>
+              <p class="m-1" *ngIf="cnicFrontPic">{{cnicFrontPic}}</p>
+          </div>
+          <br />
+          <div class="row form-inline">
+              <label class="m-3">CNIC Back </label>
+              <label class="btn btn-primary">
+                Browse <input type="file" (change)="cnicBPic($event)" accept="image/*" hidden>
+              </label>
+              <p class="m-1" *ngIf="cnicBackPic">{{cnicBackPic}}</p>
+          </div>
+          <br />
+          <div class="row">
+              <label class="m-3">Signed Documents </label>
+              <label class="btn btn-primary">
+                Browse <input type="file" (change)="docsPic($event)" accept="image/*" hidden>
+              </label>
+              <p class="m-1" *ngIf="docPic">{{docPic}}</p>
+          </div>
+           
+            
+        </nb-card-body>
+      </nb-card>
+     
+    </div>
+    <div class="col-lg-6">
+      <nb-card>
+        <nb-card-header>Field Information</nb-card-header>
+        <nb-card-body>
+              <div class="form-group">
+                <label >Designated Areas</label>
+                <select class="form-control"  [formControl]="form.controls['dArea']" >
+                    <option value="" [selected] = "true" [hidden] = "true">Select Area</option>
+                  <option value="Area1">Area1</option>
+                  <option value="Area2">Area2</option>
+                  <option value="Area3">Area3</option>
+                  <option value="Area4">Area4</option>
+                </select>
+               </div>
+               <div class=" form-group">
+                <input type="number" id="normal-field" placeholder="Package Wholesale Price " class="form-control" [formControl]="form.controls['packagewsp']" [ngClass]="{'form-control-danger': form.controls['packagewsp'].hasError('required') && form.controls['packagewsp'].touched}"/>
+                 <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['packagewsp'].hasError('required') && form.controls['packagewsp'].touched">First Name is required.</div>
+              </div>
+              <div class=" form-group">
+                <input type="number" id="normal-field" placeholder="Package Retail Price" class="form-control" [formControl]="form.controls['packagerp']" [ngClass]="{'form-control-danger': form.controls['packagerp'].hasError('required') && form.controls['packagerp'].touched}"/>
+                 <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['packagerp'].hasError('required') && form.controls['packagerp'].touched">First Name is required.</div>
+              </div>
+              <div class=" form-group">
+                <input type="number" id="normal-field" placeholder="Grace Amount" class="form-control" [formControl]="form.controls['graceAmount']" [ngClass]="{'form-control-danger': form.controls['graceAmount'].hasError('required') && form.controls['graceAmount'].touched}"/>
+                 <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['graceAmount'].hasError('required') && form.controls['graceAmount'].touched">First Name is required.</div>
+              </div>
+              <div class=" form-group">
+                <input type="number" id="normal-field" placeholder="Grace Period" class="form-control" [formControl]="form.controls['gracePeriod']" [ngClass]="{'form-control-danger': form.controls['gracePeriod'].hasError('required') && form.controls['gracePeriod'].touched}"/>
+                 <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['gracePeriod'].hasError('required') && form.controls['gracePeriod'].touched">First Name is required.</div>
+              </div>
+            
+              
+                <!-- <div class="form-group  form-group">
+                    <label>Filled and Signed by Customer and Dealer</label>
+                    <input type="file" placeholder=" Filled and Signed by Customer + Dealer" class="form-control"/>
+                </div> -->
+               
+            
+        </nb-card-body>
+      </nb-card>
+      
+        <div class="float-right">
+            <button type="submit" [disabled]="!form.valid"  class="btn btn-primary btn-md">Save</button>
+        </div>
+        </div>
+   
+  </div>
+  </fieldset>
+</form>
+        

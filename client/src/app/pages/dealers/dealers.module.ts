@@ -7,6 +7,7 @@ import { DealersComponent } from './dealers.component';
 import { DatePipe } from '@angular/common';
 import { DealersService } from '../../@core/data/dealers.service'
 import {HttpClientModule, HttpClient} from '@angular/common/http';
+import { DealerListComponent } from './dealer-list/dealer-list.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import {HttpClientModule, HttpClient} from '@angular/common/http';
     Ng2SmartTableModule,
     HttpClientModule,
   ],
-  declarations: [ ...routedComponents],
+  declarations: [ ...routedComponents, DealerListComponent],
   providers : [DatePipe , DealersService],
 })
 export class DealersModule { }
