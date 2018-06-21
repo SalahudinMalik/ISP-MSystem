@@ -1,6 +1,6 @@
 // themes - our custom or/and out of the box themes
 @import 'themes';
-
+@import '~angular-tree-component/dist/angular-tree-component.css'; 
 // framework component themes (styles tied to theme variables)
 @import '~@nebular/theme/styles/globals';
 @import '~@nebular/auth/styles/all';
@@ -26,3 +26,33 @@
   }
   @include bootstrap-rtl();
 };
+
+/********************************************/
+.tree-node {
+  color: #26A65B;
+}
+.tree-node.tree-node-leaf {
+  color: #446CB3;
+}
+.tree-menu {
+  color: #bb4d21;
+}
+
+  .tree-menu .tree-menu-option:hover {
+    background-color: #cfbd86;
+  }
+
+  .fa {
+    padding: 3px;
+  }
+
+.node-content-wrapper:hover, .node-content-wrapper-active, 
+.node-content-wrapper.node-content-wrapper-active:hover, 
+.node-content-wrapper-active.node-content-wrapper-focused,
+.node-content-wrapper-focused{
+  background-color: #e5dbbd;
+}
+
+.node-content-wrapper:hover .tree-menu{
+  display: inline !important;
+}

@@ -45,9 +45,7 @@ export class DeleteComponent implements OnInit {
   modalU_ID: string;
   modalSrc: any;
   public form: FormGroup;
-  modalContent = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-    nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-    nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.`;
+  modalContent = '';
 
   constructor(private activeModal: NgbActiveModal,
     private fb: FormBuilder,
