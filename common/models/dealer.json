@@ -1,0 +1,57 @@
+{
+  "name": "dealer",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "cnicNo": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "address2": {
+      "type": "string",
+      "required": true
+    },
+    "dArea": {
+      "type": "string",
+      "required": true
+    },
+    "packagewsp": {
+      "type": "string",
+      "required": true
+    },
+    "packagerp": {
+      "type": "string",
+      "required": true
+    },
+    "graceAmount": {
+      "type": "number",
+      "required": true
+    },
+    "gracePeriod": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

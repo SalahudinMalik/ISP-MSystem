@@ -3,7 +3,7 @@ export interface Customer {
     firstName: string;
     lastName: string;
     cnicNo: string;
-    mobileNo: number;
+    mobileNo: string;
     email: string;
     address: string;
     package: any;

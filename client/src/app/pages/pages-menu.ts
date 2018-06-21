@@ -8,15 +8,93 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'Accounts',
+    icon: 'nb-compose',
+    link: '/pages/accounts',
+    children: [
+      {
+        title: 'Chart Of Accounts',
+        link: '/pages/accounts/ChartOfAccounts',
+      },
+
+    ]
+  },
+  {
     title: 'Dealer',
     icon: 'nb-person',
-    link: '/pages/dealers/dealer',
+    link: '/pages/dealers',
+    children: [
+      {
+        title: 'Add Dealer',
+        link: '/pages/dealers/addDealer',
+      },
+      {
+        title: 'List Dealer',
+        link: '/pages/dealers/listDealer',
+      }
+    ]
   },
   {
     title: 'Customer',
     icon: 'nb-person',
-    link: '/pages/customers/customer',
-  }, {
+    link: '/pages/customers/',
+    children: [
+      {
+        title: 'Add Customer',
+        link: '/pages/customers/addCustomer',
+      },
+      {
+        title: 'List Customer',
+        link: '/pages/customers/listCustomer',
+      }
+    ]
+  },
+  {
+    title: 'Package',
+    icon: 'nb-gear',
+    link: '/pages/packages',
+    children: [
+      {
+        title: 'Add Package',
+        link: '/pages/packages/addPackage',
+      },
+      {
+        title: 'List Package',
+        link: '/pages/packages/listPackage',
+      }
+    ]
+  },
+  {
+    title: 'Complaints',
+    icon: 'nb-gear',
+    link: '/pages/complaints',
+    children: [
+      {
+        title: 'Add Complaints',
+        link: '/pages/complaints/addComplain',
+      },
+      {
+        title: 'List Complaints',
+        link: '/pages/complaints/listComplain',
+      }
+    ]
+  },
+  {
+    title: 'Base Station',
+    icon: 'nb-gear',
+    link: '/pages/basestation',
+    children: [
+      {
+        title: 'Add Base Station',
+        link: '/pages/basestation/addBasestation',
+      },
+      {
+        title: 'List Base Station',
+        link: '/pages/basestation/listBasestation',
+      }
+    ]
+  },
+  {
     title: 'Coverage',
     icon: 'nb-location',
     link: '/pages/coverage/cov',

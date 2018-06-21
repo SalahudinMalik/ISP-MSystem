@@ -6,20 +6,55 @@
     "validateUpsert": true
   },
   "properties": {
-    "cName": {
+    "firstName": {
       "type": "string",
       "required": true
     },
-    "balance": {
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "cnicNo": {
+      "type": "string",
+      "required": true
+    },
+    "mobileNo": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "package": {
+      "type": "string",
+      "required": true
+    },
+    "routerOf": {
+      "type": "string",
+      "required": true
+    },
+    "routerBrand": {
+      "type": "string",
+      "required": true
+    },
+    "routerModel": {
+      "type": "string",
+      "required": true
+    },
+    "routerPrice": {
+      "type": "number"
+    },
+    "dropWireOf": {
+      "type": "string",
+      "required": true
+    },
+    "dropWireLength": {
       "type": "number",
       "required": true
     },
-    "dateOfBirth": {
-      "type": "date",
-      "required": true
-    },
-    "cType": {
-      "type": "boolean"
+    "dropWirePricePL": {
+      "type": "number"
     }
   },
   "validations": [],

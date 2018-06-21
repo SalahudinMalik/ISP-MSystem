@@ -1,5 +1,6 @@
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { CustomerPrint } from './print/customerprint/customerprint.component';
 import {
   NbAuthComponent,
   NbLoginComponent,
@@ -13,8 +14,9 @@ import { AuthGuard } from './auth.guard'
 const routes: Routes = [
   {
     path: 'pages',
-    canActivate : [AuthGuard],
-    loadChildren: 'app/pages/pages.module#PagesModule' },
+    canActivate: [AuthGuard],
+    loadChildren: 'app/pages/pages.module#PagesModule'
+  },
   {
     path: 'auth',
     component: NbAuthComponent,
@@ -44,7 +46,11 @@ const routes: Routes = [
         component: NbResetPasswordComponent,
       },
     ],
+  }, {
+    path: 'print',
+    loadChildren: './print/print.module#PrinttModule'
   },
+  { path: 'print', redirectTo: 'print', pathMatch: 'full' },
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: '**', redirectTo: 'pages' },
 ];

@@ -15,6 +15,11 @@ const routes: Routes = [{
     component: DashboardComponent,
   },
   {
+    path: 'accounts',
+    loadChildren: './accounts/accounts.module#AccountsModule',
+  }
+  ,
+  {
     path: 'dealers',
     loadChildren: './dealers/dealers.module#DealersModule',
   }
@@ -26,6 +31,18 @@ const routes: Routes = [{
   {
     path: 'coverage',
     loadChildren: './coverage/coverage.module#CoverageModule',
+  },
+  {
+    path: 'packages',
+    loadChildren: './packages/packages.module#PackagesModule',
+  },
+  {
+    path: 'complaints',
+    loadChildren: './complaints/complain.module#ComplainModule',
+  },
+  {
+    path: 'basestation',
+    loadChildren: './basestation/basestation.module#BaseStationModule',
   },
   // {
   //   path: 'ui-features',

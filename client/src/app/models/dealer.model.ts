@@ -1,7 +1,12 @@
 export interface Dealer {
     id: any;
-    cName: string;
-    balance: number;
-    dateOfBirth: Date;
-    cType: boolean;
+    fullName: string;
+    cnicNo: string;
+    address: string;
+    address2: string;
+    dArea: string;
+    packagewsp: string;
+    packagerp: string;
+    graceAmount: number;
+    gracePeriod: number
 }

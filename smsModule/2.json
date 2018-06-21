@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "aqueous-freedom-206406",
+  "private_key_id": "f6a2eb19ea51da1da54b5ab174ecb4beee503196",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC0U+xZoLVziGnl\nUuYio/dQgTiUzc9bL3QagB6bxM8hftBDSzK2a+VfWARq1aV/6uPBapKeOwLz78+v\nJ1TDCKYt8NlYC7eQZk9B7e63sF376jQ350c53os0x2D6FFuXkt4b+dpxjLvLTnn/\nw/iPRf8PjMfG0QNclFi24PcUy5czL8KDHULhzBZmdgnimY4kAqsxmO6birN/rnez\nvewkcCqJbhqxW6LxILbi5rQ4jKFhu8U7qIml2ETP2qw7OGFJOOxHDdQ9kM4VrADN\nRc1iWo/8q6qC8yKisbHWKeHFw/oqXrmiTqem8f7NKlpFOh01ytEaGQr5NSZGl1zo\ndJbiwyvXAgMBAAECggEAGxYQBlZxau0umtec4c8nMtx2F0PixZuXIPPlpRgm1K0r\nsy/0ahpC1dNutm1o8pHhrAfKBiJvCx0WYQTTYohGDdiDjQoVhIcZmJmYpdbEBzbi\nqRMAS9z1o/PeyTGNoHLbEfCxsySkgKFFCfnxt/OXoEpRJ7f1fU57FN0tv93k1Dcz\nXesSiS0iFxj/WiHPLrS0uC47Ge1kl8cJlf3nQLtHbTLxLezK+4FelmTHzSakCMxm\nD5L6OF+/WBUQ3d/HJVmN5xufrPtXgFMnEI1fyt4uydlUtA41OKkaPvCD5KLrV2Ah\nkbZjLwNA8f9u+GrqkwVh9Seq95cp8QR2e38e+D5jQQKBgQDvpGxwWGzfS59dl/9C\nJ5n8vxlCM6We5VCuXNowu0/sm4kzl+bd3HYsX5cqjLOBU3i4iUbyZdA+6A6qJnTH\nYreOAUfupsJWVt9M1PIYVsKnIAYq+HK/tswFBRMAc6tiZ/Hf1wlwEuTvbo/B4vx/\n2g/bqOVHS1JmSiJ3pYOyDJ3+jwKBgQDAowWxc26Gkn0Ls/KT9NFygdE++EP82vle\nezTxBJL5kuqqiSASXKQJh+d1O4tJDiWJa7kG/MgOcJN/xKZYIPKrIM4lcXzmvwrs\nq4v5fGgevq9QYfYAwOAWFjFVEWy/b72m4QMjrG7Xr1DRZGBHzR3BQsQKbxrHQ1Zu\nDW59PxGiOQKBgQCEcv40Qcs6x1M3qZC9gaHMXdqaCm2Zmuiy1kMJ+B0+iuCUEXra\nWMU/1T15mPaFnhr083qw8rDcc+nXBRY6NUd6Rx74ulZi3fThRDjiVuGS+VIvYc4a\nQ/ATPjC4aTXqV8UJkJJ4zRiXdSYjZU9lYqKtJ3ZBp1HNk1/lfSeCuxJ/5QKBgB6k\nkA5HN2iuurd223qPshWN8vQaV+5MAuj1nllMifirVyrjfzeMhweBF999Jk3rsyrl\n+NvUsBoj7EKhzHguXYu9Py2TnPOzphA5xZ1dHc7uNEMMIi7Cf6LjytsmV28oXjnC\nh1ZQYp1qpOd6GRqy1S3d6gNi4xaZbpE5D79anfp5AoGAJzmS13l5CrocgMsmFUYM\nEFaa0AjlYNd9rfS0j8rxqJhALQzXj9h1PXZlQwTySFKpqOfGFlQQIbw1YxBn4wlc\ndzaH+6eyvqovRemzePxSkk7xmBvJCA6hkkVjNKa1jSO5x4i26TpEv/PL4Q9a3A2t\n1eiWWktdDQcTm3qsRIWzSo0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "google-sheets-api-quickstart@aqueous-freedom-206406.iam.gserviceaccount.com",
+  "client_id": "104164562536483593053",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/google-sheets-api-quickstart%40aqueous-freedom-206406.iam.gserviceaccount.com"
+}

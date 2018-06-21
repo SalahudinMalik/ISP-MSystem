@@ -50,5 +50,21 @@
   "customer": {
     "dataSource": "db",
     "public": true
+  },
+  "package": {
+    "dataSource": "db",
+    "public": true
+  },
+  "dealer": {
+    "dataSource": "db",
+    "public": true
+  },
+  "complaints": {
+    "dataSource": "db",
+    "public": true
+  },
+  "basestation": {
+    "dataSource": "db",
+    "public": true
   }
 }

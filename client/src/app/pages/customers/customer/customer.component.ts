@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { Customer } from '../../../models/customer.model';
 import { CustomValidationService } from './customValidationService';
-
+import { CustomersService } from '../../../@core/data/customers.service';
+import { ToastrService } from 'ngx-toastr';
+import { NbAuthService } from '@nebular/auth';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'ngx-customer',
   templateUrl: './customer.component.html',
@@ -12,10 +14,16 @@ export class CustomerComponent implements OnInit {
   cnicFrontPic: string;
   cnicBackPic: string;
   docPic: string;
-  formObj: Customer;
+  id: any;
+  private sub: any;
+  btnSave: boolean;
   public form: FormGroup;
   public formm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private customersService: CustomersService,
+    private toastr: ToastrService,
+    private route: ActivatedRoute
+  ) {
     // this.formObj = new Customer();
   }
   // fnControl: FormControl;
@@ -49,6 +57,38 @@ export class CustomerComponent implements OnInit {
       // expense: [null, Validators.compose([Validators.required])],
       // receipt: [null, Validators.compose([Validators.required])]
     });
+    this.sub = this.route.params.subscribe(params => {
+      this.id = params['id']; // (+) converts string 'id' to a number
+      console.log('this.id ' + this.id);
+      if (this.id !== undefined) {
+        this.customersService.getOneCustomer(this.id)
+        .subscribe(data => {
+          this.form.patchValue({
+            firstName : data.firstName ,
+            lastName: data.lastName,
+            cnicNo: data.cnicNo,
+            email: data.email,
+            mobileNo: data.mobileNo,
+            address: data.address,
+            package: data.package,
+            routerOf: data.routerOf,
+            routerBrand: data.routerBrand,
+            routerModel: data.routerModel,
+            routerPrice: data.routerPrice,
+            dropWireOf: data.dropWireOf,
+            dropWireLength: data.dropWireLength,
+            dropWirePricePL: data.dropWirePricePL,
+          });
+         this.form.disable();
+         this.btnSave = true;
+
+         console.log('form.valid ' + this.form.valid + ' btnSave ' + this.btnSave)
+        });
+
+      }
+
+      // In a real app: dispatch action to load the details here.
+   });
 
   }
   cnicFPic(event) {
@@ -79,12 +119,22 @@ export class CustomerComponent implements OnInit {
       routerOf: this.form.value.routerOf == null ? 'Company' : this.form.value.routerOf,
       routerBrand: this.form.value.routerBrand == null ? 'Cisco' : this.form.value.routerBrand ,
       routerModel: this.form.value.routerModel == null ? 'R28' : this.form.value.routerModel,
-      routerPrice: this.form.value.routerPrice,
+      routerPrice: this.form.value.routerOf === 'Customer' ? '' : this.form.value.routerPrice,
       dropWireOf: this.form.value.dropWireOf == null ? 'Company' : this.form.value.dropWireOf,
       dropWireLength: this.form.value.dropWireLength,
-      dropWirePricePL: this.form.value.dropWirePricePL,
+      dropWirePricePL: this.form.value.dropWireOf === 'Customer' ? '' : this.form.value.dropWirePricePL ,
     }
     console.log('data : ' + JSON.stringify(data));
+    this.customersService.saveCustomer(data)
+      .subscribe(
+        data1 => {
+            console.log('Data inserted')
+            this.toastr.success('Data inserted successfully.');
+        },
+       error => {
+        this.toastr.error('Data not inserted error occured.');
+        }
+      );
   }
 
 }

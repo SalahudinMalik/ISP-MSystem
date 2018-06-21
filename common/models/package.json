@@ -1,0 +1,41 @@
+{
+  "name": "package",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "packageName": {
+      "type": "string",
+      "required": true
+    },
+    "bDown": {
+      "type": "number",
+      "required": true
+    },
+    "bUp": {
+      "type": "number",
+      "required": true
+    },
+    "dataLimit": {
+      "type": "number",
+      "required": true
+    },
+    "cost": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

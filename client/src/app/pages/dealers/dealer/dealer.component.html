@@ -75,29 +75,30 @@
         <nb-card-body>
               <div class="form-group">
                 <label >Designated Areas</label>
-                <select class="form-control"  [formControl]="form.controls['dArea']" >
+                <select class="form-control"  [formControl]="form.controls['dArea']" [ngClass]="{'form-control-danger': form.controls['dArea'].hasError('required') && form.controls['dArea'].touched}" >
                     <option value="" [selected] = "true" [hidden] = "true">Select Area</option>
                   <option value="Area1">Area1</option>
                   <option value="Area2">Area2</option>
                   <option value="Area3">Area3</option>
                   <option value="Area4">Area4</option>
                 </select>
+                <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['dArea'].hasError('required') && form.controls['dArea'].touched">Designated Areas is required.</div>
                </div>
                <div class=" form-group">
                 <input type="number" id="normal-field" placeholder="Package Wholesale Price " class="form-control" [formControl]="form.controls['packagewsp']" [ngClass]="{'form-control-danger': form.controls['packagewsp'].hasError('required') && form.controls['packagewsp'].touched}"/>
-                 <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['packagewsp'].hasError('required') && form.controls['packagewsp'].touched">First Name is required.</div>
+                 <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['packagewsp'].hasError('required') && form.controls['packagewsp'].touched">Package Wholesale Price is required.</div>
               </div>
               <div class=" form-group">
                 <input type="number" id="normal-field" placeholder="Package Retail Price" class="form-control" [formControl]="form.controls['packagerp']" [ngClass]="{'form-control-danger': form.controls['packagerp'].hasError('required') && form.controls['packagerp'].touched}"/>
-                 <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['packagerp'].hasError('required') && form.controls['packagerp'].touched">First Name is required.</div>
+                 <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['packagerp'].hasError('required') && form.controls['packagerp'].touched">Package Retail Price is required.</div>
               </div>
               <div class=" form-group">
                 <input type="number" id="normal-field" placeholder="Grace Amount" class="form-control" [formControl]="form.controls['graceAmount']" [ngClass]="{'form-control-danger': form.controls['graceAmount'].hasError('required') && form.controls['graceAmount'].touched}"/>
-                 <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['graceAmount'].hasError('required') && form.controls['graceAmount'].touched">First Name is required.</div>
+                 <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['graceAmount'].hasError('required') && form.controls['graceAmount'].touched">Grace Amount is required.</div>
               </div>
               <div class=" form-group">
                 <input type="number" id="normal-field" placeholder="Grace Period" class="form-control" [formControl]="form.controls['gracePeriod']" [ngClass]="{'form-control-danger': form.controls['gracePeriod'].hasError('required') && form.controls['gracePeriod'].touched}"/>
-                 <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['gracePeriod'].hasError('required') && form.controls['gracePeriod'].touched">First Name is required.</div>
+                 <div style="color:red" class="m-1 form-control-feedback" *ngIf="form.controls['gracePeriod'].hasError('required') && form.controls['gracePeriod'].touched">Grace Period is required.</div>
               </div>
             
               

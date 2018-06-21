@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "steadfast-canto-206312",
+  "private_key_id": "f65a352438504cd39fa0b59013729c4feb24b156",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDNebVafGSuVcol\n3NdroFnsz7HxhdVAhDOkUdlEYA7tLEMJRCAm2DxloDT1vF45Mot2fQxfYOFmGk+z\nK8mVBb5wQJ1xrTcMcS0B6HtYtvqklo/65HI/GAgWKBLSKFfZf2rRc5e/0I7kAPRi\nf1GRcRZoIFwVPlK+XUPGhhqymqUnTLjDYaFoMEl4tdmIiPlr0BTIfB6btNRy+NVU\nKBdLMeD06hKOkepL9h2fmScjKK700J3wiKYWw2CpPjhfZB6KkiQEBQTQIqkuoIxB\ngOBNxaq28u5MFMFDxZPh/gVgr/oSQmNfn8dv3KEDMYb9J6EMPNb2jymauCE08Jia\n1z2dSzMtAgMBAAECggEAOrf7wAKJYRqqHJzaQOr/l8GY1+0HjprZCS3MuZH74gJC\nm/zIdWFZDS+1wr3UbWMI4NEGfqE4eI2vVgP+5OPR0tFcTPaToy4ajw+JZEZSJUPT\nnH65OVecQ/yquD0IMeMMOxPd+1ZV50lwjU9WF4qqPRJ2TinTyovriOmc6opwBOUQ\nT7iHycLMClnqojs6RZ84AhZQJOB4UwVme0u8NT2QuFyoLs4X48fQSuCz3xQt+RBQ\nyU0MN3iV+3SG2Sld750d++B6G/UubXYN808XljmwN4Wjy6G36lOv1dUMjDI739/H\nKRGjF3WhI3scQmDh/y4Xt+XJ2itqcn8lYbVE4akjjwKBgQDqik9lmevbx4Od1o0p\nKbHm+TYDxXkLFznMM1Nm68cTMHAxUsKIHLOwAFiCAN1bT9+5OR+VYJiFZ7pv9BEK\nvLIhUXUwZJP9grUErp7WVegQmpV2JYlWDDw9XFifk5rNyi7KKLT/B+P5rZpG9nfF\nvHkMKQ+K1xl79eUMKOdKNxig/wKBgQDgRpsPbOGcceqIWVlPOZMrkhLEiPRJvqGw\nMevDHr7SJH7nDqFX+b/XIWprxKPttFCO2l1EyI4PV1LUfIRmkD9ie7Ap+3Cs7xp7\n3H1vvInTUA5xyK+pWwpSxsfN36Jw8kKskKnr0/sUHFyz1IGN/DK3s08AwEDjX4O6\nanqS4+B/0wKBgQDUzKT5JEyxXjZ20SHGxUPasyZlCZinjW0tbywu56H6MSq6NcK2\nyIPoHogvfCVbIf91CPU1DS2VbOXlieakfUyJmmTfgYIcs6kWFHGdOtiRqBAP4ELZ\nRcSqT81BDCWareUCGykNc9VOxkqCNEG7sSOK+v5VFJDUvegRvlMMLS01dQKBgG2j\nVo415hz6u3KoazaFqOJ16GLXqMScQqLF5MFgOFy2pqsBxfIiD5x1o3bHjHPZ4D/V\nlB7aBEiPodhqfrc88R+N49LCLpT71nCSm2eSPbZlvon1V5ps/SD2OBr2poycgeem\nWMsGuAlezBrFWgg1L/4J1CdD1PTSbq0k/ILuj4MtAoGAFqEBVnoT1WhTTFby+SvB\ncoDgMEo1eew4YlH6YHq8IXbFFYHew7oREYjszmr0fu1kx1D8S58TbJjdxmZNUjMX\nNWS+YkCJno1FWEH7cBt4Xsjtz0TSMu2mpg+/PcRAqEuFnPGy9taRFhywjp1Onwu7\nbIJMBS9GYnhKDWu67KO3+VI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "sms-748@steadfast-canto-206312.iam.gserviceaccount.com",
+  "client_id": "103541744242339070712",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sms-748%40steadfast-canto-206312.iam.gserviceaccount.com"
+}

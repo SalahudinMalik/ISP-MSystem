@@ -9,7 +9,8 @@ import { Dealer } from '../../../models/dealer.model';
 import { ServerDataSource } from 'ng2-smart-table';
 import { Globals } from '../../../../Globals';
 import { NbAuthService } from '@nebular/auth';
-
+import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'ngx-dealer',
   templateUrl: './dealer.component.html',
@@ -19,8 +20,14 @@ export class DealerComponent implements OnInit {
   cnicFrontPic: string;
   cnicBackPic: string;
   docPic: string;
+  id: any;
+  private sub: any;
+  btnSave: boolean;
   public form: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,
+    private dealersService: DealersService,
+    private toastr: ToastrService,
+    private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -35,6 +42,33 @@ export class DealerComponent implements OnInit {
       graceAmount: [null, Validators.compose([Validators.required])],
       gracePeriod: [null, Validators.compose([Validators.required])],
     });
+    this.sub = this.route.params.subscribe(params => {
+      this.id = params['id']; // (+) converts string 'id' to a number
+      console.log('this.id ' + this.id);
+      if (this.id !== undefined) {
+        this.dealersService.getOneDealer(this.id)
+        .subscribe(data => {
+          this.form.patchValue({
+            fullName : data.fullName ,
+            cnicNo: data.cnicNo,
+            address: data.address,
+            address2: data.address2,
+            packagewsp: data.packagewsp,
+            dArea: data.dArea,
+            packagerp: data.packagerp,
+            graceAmount: data.graceAmount,
+            gracePeriod: data.gracePeriod,
+          });
+         this.form.disable();
+         this.btnSave = true;
+
+         console.log('form.valid ' + this.form.valid + ' btnSave ' + this.btnSave)
+        });
+
+      }
+
+      // In a real app: dispatch action to load the details here.
+   });
 
   }
   cnicFPic(event) {
@@ -65,6 +99,17 @@ export class DealerComponent implements OnInit {
       graceAmount: this.form.value.graceAmount,
       gracePeriod: this.form.value.gracePeriod,
     }
+    this.dealersService.saveDealer(data)
+    .subscribe(
+      data1 => {
+          console.log('Data inserted')
+          this.toastr.success('Data inserted successfully.');
+      },
+     error => {
+      this.toastr.error('Data not inserted error occured.');
+      }
+    );
+
     console.log('data : ' + JSON.stringify(data));
   }
 

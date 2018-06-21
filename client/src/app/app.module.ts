@@ -3,6 +3,7 @@
  * Copyright Akveo. All Rights Reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
+
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +18,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthGuard } from './auth.guard';
 import { Globals } from '../Globals';
 import { NbEmailPassAuthProvider, NbAuthModule } from '@nebular/auth';
+import { ToastrModule } from 'ngx-toastr';
+import { PrinttModule } from './print/print.module';
+import { CustomersModule } from './pages/customers/customers.module';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,9 +30,12 @@ import { NbEmailPassAuthProvider, NbAuthModule } from '@nebular/auth';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    PrinttModule,
+    CustomersModule,
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
+    ToastrModule.forRoot(),
     NbAuthModule.forRoot({
       providers: {
         email: {

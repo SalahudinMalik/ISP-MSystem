@@ -9,9 +9,17 @@ const routes: Routes = [
     path: '',
     component: DealersComponent,
     children: [{
-      path: 'dealer',
+      path: 'addDealer',
       component: DealerComponent,
       },
+      {
+        path: 'listDealer',
+        component: DealerListComponent,
+      },
+      {
+        path: 'showDealer/:id',
+        component: DealerComponent,
+      }
     ],
   },
 ];

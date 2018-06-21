@@ -3,13 +3,22 @@ import { Routes, RouterModule } from '@angular/router';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomersComponent } from './customers.component';
 import { CustomersListComponent } from './customers-list/customers-list.component';
+import { DeleteComponent } from './customers-list/delete.component'
 const routes: Routes = [
   {
     path: '',
     component: CustomersComponent,
     children: [{
-      path: 'customer',
+      path: 'addCustomer',
       component: CustomerComponent
+      },
+      {
+        path: 'listCustomer',
+        component: CustomersListComponent
+      },
+      {
+        path: 'showCustomer/:id',
+        component: CustomerComponent,
       }
     ]
   }
@@ -24,5 +33,6 @@ export class CustomersRoutingModule { }
 export const routedComponents = [
   CustomerComponent,
   CustomersComponent,
-  CustomersListComponent
+  CustomersListComponent,
+  DeleteComponent
 ];

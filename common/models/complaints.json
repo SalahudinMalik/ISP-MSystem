@@ -1,0 +1,35 @@
+{
+  "name": "complaints",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "customerId": {
+      "type": "string"
+    },
+    "complaintOpenDateTime": {
+      "type": "date"
+    },
+    "complaintStatus": {
+      "type": "number"
+    },
+    "assignedTo": {
+      "type": "string"
+    },
+    "opendBy": {
+      "type": "string"
+    },
+    "resolvedDate": {
+      "type": "date"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
