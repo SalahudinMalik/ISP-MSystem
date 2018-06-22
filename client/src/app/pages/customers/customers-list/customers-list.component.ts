@@ -112,6 +112,10 @@ export class CustomersListComponent implements OnInit {
     activeModal.componentInstance.modalUCnic = event.data.cnicNo;
     activeModal.componentInstance.modalU_ID = event.data.id;
     activeModal.componentInstance.modalSrc = this.source;
+    activeModal.result.then(() => {
+      this.refresh();
+    }, () => { console.log('Backdrop click')
+    });
   }
   public refresh(): void {
     this.source.refresh();

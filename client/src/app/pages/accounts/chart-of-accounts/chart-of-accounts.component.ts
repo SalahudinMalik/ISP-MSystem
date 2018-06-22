@@ -3,7 +3,8 @@ import { Http, Response, Headers } from '@angular/http';
 import { ViewChild } from '@angular/core'
 import { TreeComponent, TREE_ACTIONS, KEYS, IActionMapping, ITreeOptions } from 'angular-tree-component';
 import * as _ from 'lodash';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { InputComponent } from './input.component';
 @Component({
   selector: 'ngx-chart-of-accounts',
   templateUrl: './chart-of-accounts.component.html',
@@ -12,9 +13,6 @@ import * as _ from 'lodash';
 
 export class ChartOfAccountsComponent implements OnInit {
 
-  public editTerm: string;
-  public folderCount: number = 0;
-  public nodeCount: number = 0;
   public operation: number = 0;
   nodes = [
     {
@@ -56,94 +54,62 @@ export class ChartOfAccountsComponent implements OnInit {
     animateAcceleration: 1.2
   }
 
-  constructor(private http: Http) { }
+  constructor(
+    private http: Http,
+    private modalService: NgbModal,
+  ) { }
 
   ngOnInit() {
-    this.getCount(this.nodes);
   }
 
   @ViewChild(TreeComponent)
   private tree: TreeComponent;
 
-  actionClick(node, tree, term, op) {
-    const inputs = document.getElementsByClassName('actionPane');
-    for (let i = 0; i < inputs.length; i++) {
-      // inputs[i].style.visibility = 'hidden';
-    }
-    const wrapper = document.getElementsByClassName('node-content-wrapper');
-    for (let i = 0; i < wrapper.length; i++) {
-      // wrapper[i].style.height = '20px';
-    }
-    document.getElementById(node.data.id).style.visibility = 'visible';
-    if (op == 1)
-      term.value = node.data.name;
-    else
-      term.value = '';
-    this.operation = op;
-    document.getElementById('content' + node.data.id).style.height = '50px';
-  }
-
-  okClick(node, tree, term) {
-    switch (this.operation) {
+  actionClick(node, tree, op) {
+    // const inputs = document.getElementsByClassName('actionPane');
+    // for (let i = 0; i < inputs.length; i++) {
+    //   // inputs[i].style.visibility = 'hidden';
+    // }
+    switch (op) {
       case 1:
-        this.editNode(node, tree, term)
+        this.openPopup(node, tree , 'Edit' , 1);
         break;
       case 2:
-        this.addNode(node, tree, term)
+        this.openPopup(node, tree , 'Add Node' , 2);
         break;
       case 3:
-        this.addCategory(node, tree, term)
+        this.openPopup(node, tree , 'Add Catagery', 3);
         break;
       default: alert('Invalid Action');
     }
-    const inputs = document.getElementsByClassName('actionPane');
-    for (let i = 0; i < inputs.length; i++) {
-      // inputs[i].style.visibility = 'hidden';
-    }
-    const wrapper = document.getElementsByClassName('node-content-wrapper');
-    for (let i = 0; i < wrapper.length; i++) {
-      // wrapper[i].style.height = '20px';
-    }
+    // const wrapper = document.getElementsByClassName('node-content-wrapper');
+    // for (let i = 0; i < wrapper.length; i++) {
+    //   // wrapper[i].style.height = '20px';
+    // }
+    // document.getElementById(node.data.id).style.visibility = 'visible';
+    // if (op == 1)
+    //   term.value = node.data.name;
+    // else
+    //   term.value = '';
+    // this.operation = op;
+    // document.getElementById('content' + node.data.id).style.height = '50px';
   }
 
-  addNode(node, tree, term) {
-    if (term.value == undefined || term.value == null || term.value == '') {
-      alert('Enter a valid value');
-      return;
-    }
-    node.data.children.push({ name: term.value });
-    this.tree.treeModel.update();
-    this.nodeCount++;
-    alert('Term added: ' + term.value);
-    term.value = '';
-    term.visibility = false;
-  }
 
-  addCategory(node, tree, term) {
-    if (term.value == undefined || term.value == null || term.value == '') {
-      alert('Enter a valid value');
-      return;
-    }
-    node.data.children.push({ name: term.value, children: [] });
-    this.tree.treeModel.update();
-    alert('Category added: ' + term.value);
-    this.folderCount++;
-    term.value = '';
+  openPopup(node , tree , header , ops) {
+    const activeModal = this.modalService.open(InputComponent, { size: 'lg', container: 'nb-layout' });
+    activeModal.componentInstance.modalHeader = header;
+    activeModal.componentInstance.modalOperation = ops;
+    activeModal.componentInstance.modalNode = node;
+    activeModal.componentInstance.modalTree = tree;
+    activeModal.result.then(() => {
+      console.log('When user closes');
+      this.tree.treeModel.update();
+    }, () => { console.log('Backdrop click')
+    });
+
 
   }
-
-  editNode(node, tree, term) {
-    if (term.value == undefined || term.value == null || term.value == '') {
-      alert('Enter a valid value');
-      return;
-    }
-    node.data.name = term.value;
-    this.tree.treeModel.update();
-    alert('Term updated to: ' + term.value);
-    term.value = '';
-
-  }
-
   deleteNode(node, tree) {
     if (confirm('Are you sure to delete ' + node.data.name)) {
       const parentNode = node.realParent ? node.realParent : node.treeModel.virtualRoot;
@@ -154,35 +120,7 @@ export class ChartOfAccountsComponent implements OnInit {
       if (node.parent.data.children.length === 0) {
         node.parent.data.hasChildren = false;
       }
-      this.getNewCountRecurse(node);
     }
   }
 
-  getCount(node) {
-    node.forEach(element => {
-      this.getCountRecurse(element);
-    });
-  }
-
-  getCountRecurse(node) {
-    if (node.children != undefined) {
-      this.folderCount++;
-      node.children.forEach(child => {
-        this.getCountRecurse(child);
-      });
-    }
-    else
-      this.nodeCount++;
-  }
-
-  getNewCountRecurse(node) {
-    if (node.children != undefined) {
-      this.folderCount--;
-      node.children.forEach(child => {
-        this.getNewCountRecurse(child);
-      });
-    }
-    else
-      this.nodeCount--;
-  }
 }
